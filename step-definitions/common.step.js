@@ -14,5 +14,3 @@ When(/^I navigate to singin page$/, async () => {
   await homePage.navigateToLoginPage();
   console.log("Clicked on Sign in buttong on home page for sign up / sing in");
 });
-
-When(/^I am on signIn page$/, async () => {});

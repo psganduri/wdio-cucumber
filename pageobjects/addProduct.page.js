@@ -17,7 +17,6 @@ class AddProductToCart {
   }
 
   get btnAddToCart() {
-    // return $("//a/span[contains(text(),'Add to cart')]");
     return $("#add_to_cart button");
   }
   get btnProceedToCkout() {
@@ -30,6 +29,26 @@ class AddProductToCart {
     return $(
       "//p[@class='product-name']/a[text()='Faded Short Sleeve T-shirts']"
     );
+  }
+  get btnProcessAddress() {
+    return $("button[name='processAddress']");
+  }
+  get btnShippingProceed() {
+    return $("button[name='processCarrier']");
+  }
+
+  get btnSummaryCheckout() {
+    return $("a.button.btn.btn-default.standard-checkout.button-medium");
+  }
+
+  get ckboxAt() {
+    return $("div#uniform-cgv.checker");
+  }
+  get ckboxTerms() {
+    return $("div#uniform-cgv.checker");
+  }
+  get btnsubmitAtTerms() {
+    return $("button[name='processCarrier']");
   }
 
   // Actions on Add Product
@@ -50,23 +69,26 @@ class AddProductToCart {
       "Expected product txt is: " + global.SharedVariable.productDetails
     );
     await this.txtProductTitle.click();
-    // await browser.moveToElement(this.imgTshirt);
-
-    // await browser.pause(5000);
     await this.btnAddToCart.waitForDisplayed();
-    // await this.btnAddToCart.moveTo();
-    // await browser.waitUntil(this.btnAddToCart.isClickable());
     await this.btnAddToCart.click();
     await browser.pause(5000);
   }
 
   async navigateToPaymentsPage() {
-    // await this.btnProceedToCkout.isClickable({ timeout: 5000 });
     await this.btnProceedToCkout.waitForDisplayed();
     await this.btnProceedToCkout.click();
-    await browser.pause(5000);
-    await this.txtShoppingCartSummary.waitForDisplayed({ timeout: 5000 });
-    await this.txtShoppingCartSummary.isDisplayed();
+    await this.btnSummaryCheckout.waitForDisplayed();
+    await this.btnSummaryCheckout.scrollIntoView();
+
+    await this.btnSummaryCheckout.click();
+    await this.btnProcessAddress.waitForDisplayed();
+    await this.btnProcessAddress.scrollIntoView();
+    await this.btnProcessAddress.click();
+
+    await this.ckboxAt.click();
+    await this.btnShippingProceed.waitForDisplayed();
+    await this.btnShippingProceed.scrollIntoView();
+    await this.btnShippingProceed.click();
   }
   async verifyProductDetailsInCart() {
     await this.txtItemInCart.waitForExist();

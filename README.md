@@ -13,7 +13,7 @@ git clone https://github.com/psganduri/wdio-cucumber.git
 ? Do you want WebdriverIO to autogenerate some test files? (Y/n) n
 ? Which reporter do you want to use? - Use Space to select multiple - select spec and allure - Hit enter
 ? Do you want to add a service to your test setup? (Press <space> to select, <a> to toggle all, <i> to invert selection) - >(*) chromedriver
-? What is the base url? "http://automationpractice.com/"
+? What is the base url? Hit Enter
 
 ----------------------------------------------------------------------------------------
 In wdio.conf.js

@@ -38,7 +38,7 @@ Add below global sharedvariables under before feature
 ----------------------------------------------------------------------------------------------
 
 *****************To start the test, run:**************
-npm run 
+npm run test
 
 *****************To generate report, execute below comand post test run***********
 allure generate

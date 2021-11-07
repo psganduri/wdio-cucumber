@@ -8,8 +8,8 @@ git clone https://github.com/psganduri/wdio-cucumber.git
 ? Where is your automation backend located? - On my local machine - Hit enter
 ? Which framework do you want to use? - Select > cucumber
 ? Do you want to use a compiler? (Use arrow keys) - select > Babel (https://babeljs.io/)
-? Where are your feature files located? "./features/**/online_shopping.feature"
-? Where are your step definitions located? "./step-definitions/*.js"
+? Where are your feature files located? Hit Enter 
+? Where are your step definitions located? Hit Enter 
 ? Do you want WebdriverIO to autogenerate some test files? (Y/n) n
 ? Which reporter do you want to use? - Use Space to select multiple - select spec and allure - Hit enter
 ? Do you want to add a service to your test setup? (Press <space> to select, <a> to toggle all, <i> to invert selection) - >(*) chromedriver
@@ -18,13 +18,20 @@ git clone https://github.com/psganduri/wdio-cucumber.git
 ----------------------------------------------------------------------------------------
 In wdio.conf.js
 -----------------------------------------------------------------------------------------
+Set feature file path in specs as below
+	specs: ["./features/**/online_shopping.feature"],
+-------------------------------------------------------------	
+Set Step definitions path as below 
+	Under cucumberOpts:{
+	require: ["./step-definitions/*.js"],
+-------------------------------------------------------------	
 Under capabilities add below configuration for browser window to be maximised
   browserName: "chrome",
       acceptInsecureCerts: true,
       "goog:chromeOptions": {
         args: ["--start-maximized"],
       },
-	  
+-------------------------------------------------------------	  
 	  
 Add below global sharedvariables under before feature
  beforeFeature: function (uri, feature) {

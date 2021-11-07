@@ -16,7 +16,7 @@ git clone https://github.com/psganduri/wdio-cucumber.git
 ? What is the base url? Hit Enter
 
 ----------------------------------------------------------------------------------------
-In wdio.conf.js
+In wdio.conf.js make below changes, save and close it.
 -----------------------------------------------------------------------------------------
 Set feature file path in specs as below
 	specs: ["./features/**/online_shopping.feature"],
@@ -43,6 +43,7 @@ Add below global sharedvariables under before feature
     browser.maximizeWindow();
   },	  
 ----------------------------------------------------------------------------------------------
+
 
 *****************To start the test, run:**************
 npm run test

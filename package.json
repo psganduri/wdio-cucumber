@@ -4,7 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx wdio wdio.conf.js"
+    "initiateEdge":"C:/Softwares/wdio-cucumberExtendingMultibrowserCapability/wdio-cucumber/browsers/msedgedriver.exe -port=4444",
+    
+    "runOnEdge": "SET browser=MicrosoftEdge&&npx wdio wdio.conf.js",
+    "runOnChrome":"SET browser=chrome&&npx wdio wdio.conf.js"
   },
   "keywords": [],
   "author": "Prem Sai Ganduri",
@@ -23,5 +26,6 @@
     "faker": "^5.5.3",
     "install": "^0.13.0",
     "npm": "^8.1.2",
-    "wdio-chromedriver-service": "^7.2.2"  }
+    "wdio-chromedriver-service": "^7.2.2"
+  }
 }

@@ -9,12 +9,7 @@ class SignInPage {
   get btnSignIn() {
     return $("#SubmitLogin");
   }
-  /**
-   *
-   * @param {*} emailaddress - email address read from scenario example
-   * @param {*} password - password read from scenario example
-   * @@param {*} message - message on the portal
-   */
+ 
   // Actions on SignIn Page
 
   async verifySignInPageIsDisplayed() {

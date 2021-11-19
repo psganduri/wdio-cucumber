@@ -27,3 +27,6 @@ Feature: This Feature verifies the basic functionalities of online shopping port
     Then navigate to the payments page
     Then verify product displayed in the cart is same as the product added earlier
 
+
+
+

@@ -95,12 +95,7 @@ class AuthPage {
   }
 
   //Page Actions on Sign In Page
-  /**
-   *
-   * @param {*} emailaddress - email address read from scenario example
-   * @param {*} password - password read from scenario example
-   * @@param {*} message - message on the portal
-   */
+
   signIn = async (emailaddress, password) => {
     await this.input_login_Email.setValue(emailaddress);
     await this.input_login_Password.setValue("password123");

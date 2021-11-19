@@ -55,11 +55,16 @@ exports.config = {
       // 5 instances get started at a time.
       maxInstances: 5,
       //
-      browserName: "chrome",
-      acceptInsecureCerts: true,
-      "goog:chromeOptions": {
-        args: ["--start-maximized"],
-      },
+      // browserName: "chrome",
+
+      browserName: process.env.browser,
+      // acceptInsecureCerts: true,
+      // "goog:chromeOptions": {
+      //   args: ["--start-maximized"],
+      // },
+      // browserName: "MicrosoftEdge",
+      // browserVersion: "95.0.1020.40",
+      // path: "/browsers",
       // If outputDir is provided WebdriverIO can capture driver session logs
       // it is possible to configure which logTypes to include/exclude.
       // excludeDriverLogs: ['*'], // pass '*' to exclude all driver session logs
@@ -342,24 +347,24 @@ exports.config = {
    */
   // onComplete: function(exitCode, config, capabilities, results) {
   // },
-  // onComplete: function () {
-  //   const reportError = new Error("Could not generate Allure report");
-  //   const generation = allure(["generate", "allure-results", "--clean"]);
-  //   return new Promise((resolve, reject) => {
-  //     const generationTimeout = setTimeout(() => reject(reportError), 5000);
+  onComplete: function () {
+    const reportError = new Error("Could not generate Allure report");
+    const generation = allure(["generate", "allure-results", "--clean"]);
+    return new Promise((resolve, reject) => {
+      const generationTimeout = setTimeout(() => reject(reportError), 5000);
 
-  //     generation.on("exit", function (exitCode) {
-  //       clearTimeout(generationTimeout);
+      generation.on("exit", function (exitCode) {
+        clearTimeout(generationTimeout);
 
-  //       if (exitCode !== 0) {
-  //         return reject(reportError);
-  //       }
+        if (exitCode !== 0) {
+          return reject(reportError);
+        }
 
-  //       console.log("Allure report successfully generated");
-  //       resolve();
-  //     });
-  //   });
-  // },
+        console.log("Allure report successfully generated");
+        resolve();
+      });
+    });
+  },
 
   /**
    * Gets executed when a refresh happens.
